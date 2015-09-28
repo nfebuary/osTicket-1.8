@@ -53,7 +53,7 @@ if ($role->hasPerm(Task::PERM_DELETE)) {
             'delete' => array(
                 'href' => sprintf('#tasks/%d/delete', $task->getId()),
                 'icon' => 'icon-trash',
-                'class' => 'red button task-action',
+                'class' => 'danger',
                 'label' => __('Delete'),
                 'redirect' => 'tasks.php'
             ));
@@ -102,8 +102,9 @@ if ($task->isOverdue())
                 href="tasks.php?id=<?php echo $task->getId(); ?>"
                 ><i class="icon-refresh"></i> <?php
                 echo sprintf(__('Task #%s'), $task->getNumber()); ?></a>
-                <span class="faded notsticky">&nbsp;&mdash; &nbsp;<?php echo $task->getTitle(); ?></span>
-               </h2>
+                   <?php if ($task) { ?> – <small><span class="ltr"><?php echo $task->getTitle(); ?></span></small>
+                <?php } ?>
+            </h2>
             <?php
             } ?>
         </div>
@@ -129,10 +130,8 @@ if ($task->isOverdue())
                 class="action-dropdown anchor-right">
                 <ul>
             <?php foreach ($actions as $a => $action) { ?>
-                    <li>
-                        <a class="no-pjax <?php
-                            echo $action['class'] ?: 'task-action'; ?>"
-                            <?php
+                    <li <?php if ($action['class']) echo sprintf("class='%s'", $action['class']); ?> >
+                        <a class="no-pjax task-action" <?php
                             if ($action['dialog'])
                                 echo sprintf("data-dialog-config='%s'", $action['dialog']);
                             if ($action['redirect'])
@@ -425,9 +424,9 @@ else
                 </td>
             </tr>
         </table>
-       <p  style="padding-left:165px;">
-           <input class="btn_sm" type="submit" value="<?php echo __('Post Update');?>">
-           <input class="btn_sm" type="reset" value="<?php echo __('Reset');?>">
+       <p  style="text-align:center;">
+           <input class="save pending" type="submit" value="<?php echo __('Post Update');?>">
+           <input type="reset" value="<?php echo __('Reset');?>">
        </p>
     </form>
     <?php
@@ -485,9 +484,9 @@ else
                 </td>
             </tr>
         </table>
-       <p  style="padding-left:165px;">
-           <input class="btn_sm" type="submit" value="<?php echo __('Post Note');?>">
-           <input class="btn_sm" type="reset" value="<?php echo __('Reset');?>">
+       <p  style="text-align:center;">
+           <input class="save pending" type="submit" value="<?php echo __('Post Note');?>">
+           <input type="reset" value="<?php echo __('Reset');?>">
        </p>
     </form>
  </div>
