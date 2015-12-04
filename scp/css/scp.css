@@ -32,6 +32,19 @@ a:hover i[class^="icon-"],
     text-decoration: none;
 }
 
+.tab-desc {
+    padding:5px 10px;
+    border:1px dotted #aaa;
+    background-color:#eee;
+    border-radius:5px;
+    color:#666;
+}
+
+.tab-desc p {
+    margin:0;
+    padding:0;
+}
+
 div#header a {
     color:#E65524;
 }
@@ -1251,9 +1264,10 @@ a.print {
 .table tr.header th,
 .table > thead th {
     font-weight: 400;
-    font-size: 1.3em;
+    font-size: 1em;
     text-align: left;
     min-height: 24px;
+    color:#666;
 }
 .table tbody:not(:first-child) th {
   padding-top: 1.4em;
@@ -1866,7 +1880,7 @@ ul.tabs.step li {
     display: inline-block;
     list-style: none;
     text-align: left;
-    min-width: 130px;
+    min-width: 100px;
     font-weight: bold;
     height: 30px;
     line-height: 20px;
