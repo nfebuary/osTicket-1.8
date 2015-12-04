@@ -883,8 +883,42 @@ a time.relative {
 .jb-overflowmenu-menu-secondary .customQ-dropdown li > span {
     padding:0 5px;
 }
-
 /**********************End Custom Queues Dropdown******************/
+
+/*************Qeueue Title Config dropdown options****************/
+.configureQ { 
+    display:block; 
+    float:left;
+    color:rgba(0,0,0,.2);
+    margin:4px 0 0 4px;
+    cursor:pointer;
+}
+.configureQ:hover {
+     color:rgba(0,0,0,.6);
+}
+
+.configureQ > .noclick-dropdown {
+    padding:25px 0 0 0;
+    margin-top:-20px;
+    margin-left:-11px;
+}
+.configureQ:hover > .noclick-dropdown {
+    display:block;
+    
+}
+.configureQ > .noclick-dropdown:before {
+    top: 19px;
+    left: 9px;
+}
+.configureQ > .noclick-dropdown:after {
+    top: 20px;
+    left: 10px;
+}
+
+
+/*********************/
+
+
 
 a.test  { background-image:url(../images/icons/open.gif) }
 
@@ -1812,6 +1846,161 @@ ul.tabs.alt li.active {
   background-color: transparent;
   border-bottom:2px solid #81a9d7;
 }
+/********************************/
+/******** Step by Step **********/
+
+ul.tabs.step {
+    padding:0 5px;
+    margin: 0;
+    text-align: left;
+    height: 40px;
+    border-bottom: 1px solid #aaa;
+    background: none;
+    position: relative;
+    box-shadow: 0;
+}
+
+ul.tabs.step li {
+    margin: 0 -5px 0 0;
+    padding: 5px 20px 5px 30px;
+    display: inline-block;
+    list-style: none;
+    text-align: left;
+    min-width: 130px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 20px;
+    color: #aaa;
+    color:rgba(0,0,0,.35);
+    display: inline-block;
+    outline: none;
+    position: relative;
+    bottom: 1px;
+    background: #eef3f8;
+    border: 1px solid #ccc;
+    border-color: rgba(34,36,38,.15);
+    border-bottom: none;
+    position: relative;
+    bottom: 1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 95%;
+    -webkit-transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+    transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+}
+
+ul.tabs.step li.active {
+    border-bottom:1px solid #fff;    
+    box-shadow:none;
+    background-color: #fff;
+}
+.dialog ul.tabs.step li.active {
+    border-bottom:1px solid #f8f8f8;    
+    background-color: #f8f8f8;
+}
+
+ul.tabs.step li a {
+    font-weight: 400;
+    line-height: 20px;
+    color: #aaa;
+    color:rgba(0,0,0,.35);
+    display: block;
+    outline: none;
+    padding: 5px 10px;
+}
+ul.tabs.step li.active a {
+    font-weight:bold;
+    color: #444;
+    color:rgba(0,0,0,.6);
+}
+
+/* incase we need a completed class */
+ul.tabs.step li.completed {
+    
+}
+
+ul.tabs.step li:first-child { 
+    padding: 5px 20px;
+    border-top-left-radius: 5px;
+}
+ul.tabs.step li:last-child {
+    border-top-right-radius: 5px;
+}
+
+ul.tabs.step li:before {
+    content:"";
+    font-size:2em;
+    position:absolute;
+    left:16px;
+    top:9px;
+    color:#aaa;
+    color:rgba(0,0,0,.35);
+}
+ul.tabs.step li.active:before {
+    color:#444;
+    color:rgba(0,0,0,.6);
+}
+
+/****** Numbering system for tab list items with step class */
+ul.tabs.step li:nth-child(1):before {
+    content:"1";
+    left:10px;
+}
+ul.tabs.step li:nth-child(2):before {
+    content:"2";
+}
+ul.tabs.step li:nth-child(3):before {
+    content:"3";
+}
+ul.tabs.step li:nth-child(4):before {
+    content:"4";
+}
+ul.tabs.step li:nth-child(5):before {
+    content:"5";
+}
+ul.tabs.step li:nth-child(6):before {
+    content:"6";
+}
+ul.tabs.step li:nth-child(7):before {
+    content:"7";
+}
+ul.tabs.step li:nth-child(8):before {
+    content:"8";
+}
+ul.tabs.step li:nth-child(9):before {
+    content:"9";
+}
+/****If it gets to 9 steps we have serious UI issues****/
+
+ul.tabs.step li:after {
+    position: absolute;
+    z-index: 2;
+    content: '';
+    top: 50%;
+    right: -1px;
+    border: solid;
+    background: #eef3f8;
+    width: 1.14285714em;
+    height: 1.14285714em;
+    border-color: rgba(34,36,38,.15);
+    border-width: 0 1px 1px 0;
+    -webkit-transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+    transition: background-color .1s ease,opacity .1s ease,color .1s ease,box-shadow .1s ease;
+    -webkit-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+    -ms-transform: translateY(-50%) translateX(50%) rotate(-45deg);
+    transform: translateY(-50%) translateX(50%) rotate(-45deg);
+}
+ul.tabs.step li:last-child:after {
+    display:none;
+}
+ul.tabs.step li.active:after {
+    background-color: #fff;
+}
+.dialog ul.tabs.step li.active:after {
+    background-color: #f8f8f8;
+}
+
+/********************************************************/
 
 #response_options .reply_tab.tell {
     color:#a00 !important;
